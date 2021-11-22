@@ -1,4 +1,6 @@
-import 'products/ProductsIndex';
-import 'cart/CartIndex';
+import {mount as mountProduct} from 'products/ProductsIndex';
+import {mount as mountCart} from 'cart/CartIndex';
 
-console.log('this is the container');
+
+mountProduct(document.querySelector('#my-products'))
+mountCart(document.querySelector('#my-cart'))
