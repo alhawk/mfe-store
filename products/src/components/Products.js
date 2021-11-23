@@ -11,10 +11,11 @@ const Products = () => {
 
 	return (
 		<div>
+			Test
 			{
 				products.map(el => {
 					return (
-						<div key={el.id}>
+						<div key={el.id} className="w-10">
 							<h3>{el.title}</h3>
 							<img src={el.image}/>
 							<p>{el.description}</p>
