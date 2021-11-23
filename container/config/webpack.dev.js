@@ -1,12 +1,18 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {merge} = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-module.exports = {
-    mode: 'development',
-    devServer: {
-        port: 8080,
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
+const commonConfig = require('./webpack.common')
+
+const devConfig = {
+	mode: 'development',
+	devServer: {
+		port: '8080',
+		historyApiFallback: {
+			index: 'index.html'
+		}
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
             template: './public/index.html',
         }),
         new ModuleFederationPlugin({
@@ -16,5 +22,7 @@ module.exports = {
                 cart: 'cart@http://localhost:8082/remoteEntry.js',
             },
         }),
-    ],
-};
+	]
+}
+
+module.exports = merge(commonConfig, devConfig)

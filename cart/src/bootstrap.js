@@ -1,15 +1,17 @@
-const faker = require('faker')
+import React from 'react'
+import reactDOM from 'react-dom'
+import App from './App.js'
 
 const mount = (el) => {
-    const cart = `<div>You have ${faker.random.number()} your cart</div>`
-    el.innerHTML = cart
+    reactDOM.render(<App/>, el)
 }
 
 if (process.env.NODE_ENV === 'development') {
-    const el = document.querySelector('#dev-cart')
+    const el = document.querySelector('#dev-cart');
     if (el) {
         mount(el)
     }
 }
 
 export {mount}
+
