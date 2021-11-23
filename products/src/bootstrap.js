@@ -1,12 +1,9 @@
-import faker from 'faker';
+import React from 'react'
+import reactDOM from 'react-dom'
+import App from './App.js'
 
 const mount = (el) => {
-    let products = '';
-    for (let i = 0; i < 3; i++) {
-        const name = faker.commerce.productName();
-        products += `<div>${name}</div>`;
-    }
-    el.innerHTML = products
+    reactDOM.render(<App/>, el)
 }
 
 if (process.env.NODE_ENV === 'development') {
