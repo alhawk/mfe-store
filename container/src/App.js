@@ -5,7 +5,7 @@ import ProductApp from './components/ProductApp'
 function App() {
 	return (
 		<div>
-			<h1>Container</h1>
+			<div className="text-4xl font-black bg-blue-500 text-white p-6">Container! Navigation should be here</div>
 			<ProductApp/>
 			<CartApp/>
 
