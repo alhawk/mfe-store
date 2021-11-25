@@ -4,7 +4,11 @@ import React, {useRef, useEffect} from 'react'
 const CartApp = () => {
 	const ref = useRef(null)
 	useEffect(() => {
-		mount(ref.current)
+		mount(ref.current, {
+			onNavigate: () => {
+				console.log('container cart')
+			}
+		})
 	})
 	return (
 		<div ref={ref}/>

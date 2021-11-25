@@ -2,13 +2,18 @@ const {merge} = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common')
+const packageJson = require('../package.json')
 
 const devConfig = {
 	mode: 'development',
+	output: {
+		filename: '[name][contenthash].js',
+		publicPath: '/'
+	},
 	devServer: {
 		port: '8081',
 		historyApiFallback: {
-			index: 'index.html'
+			index: '/index.html'
 		}
 	},
 	plugins: [
@@ -21,7 +26,7 @@ const devConfig = {
             exposes: {
                 './ProductsIndex': './src/bootstrap.js',
             },
-            shared: ['faker'],
+            shared: packageJson.dependencies,
         }),
 	]
 }
