@@ -1,6 +1,4 @@
 import React from 'react'
-import CartApp from '../apps/CartApp'
-import ProductApp from '../apps/ProductApp'
 
 const Home = () => {
   return (
@@ -11,10 +9,3 @@ const Home = () => {
 }
 
 export default Home
-
-// fragment(src="sigil/slider")
-// fragment(src="baseplate/ads")
-
-// /
-// /products -> container
-// /products/id/ -> microfe

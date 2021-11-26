@@ -5,9 +5,10 @@ const commonConfig = require('./webpack.common')
 
 const devConfig = {
 	mode: 'development',
+	name: 'container',
 	output: {
 		filename: '[name][contenthash].js',
-		publicPath: '/',
+		publicPath: 'http://localhost:8080/',
 	},
 	devServer: {
 		port: '8080',

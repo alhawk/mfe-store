@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import ProductDetails from './pages/ProductDetails'
 import Products from './pages/Products'
+// const Products = React.lazy(() => import("./pages/Products"));
  
 const App = () => {
 	return (

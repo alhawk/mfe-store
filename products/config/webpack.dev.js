@@ -6,9 +6,10 @@ const packageJson = require('../package.json')
 
 const devConfig = {
 	mode: 'development',
+	name: 'products',
 	output: {
 		filename: '[name][contenthash].js',
-		publicPath: '/'
+		publicPath: 'http://localhost:8081/'
 	},
 	devServer: {
 		port: '8081',

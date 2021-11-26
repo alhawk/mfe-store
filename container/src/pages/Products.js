@@ -1,10 +1,12 @@
-import React from 'react'
-import ProductApp from '../apps/ProductApp'
+import React, { Suspense } from 'react'
+const ProductApp = React.lazy(() => import("../apps/ProductApp"));
 
 const Products = () => {
   return (
     <div>
-      <ProductApp/>
+      <Suspense fallback={<h1>Still Loading…</h1>}>
+        <ProductApp/> 
+      </Suspense>
     </div>
   )
 }

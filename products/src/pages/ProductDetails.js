@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { getProductDetailsById } from '../store/slices/products'
 
-const ProductDetails = ({location}) => {
+const ProductDetails = () => {
   const {id} = useParams()
-  const [product, setProduct] = useState(null)
-  // console.log(params, 'params')
-  // console.log(location, "<<<<<<<")
+  const product = useSelector(state => state.products.productDetails)
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-			.then(res => res.json())
-			.then(json => setProduct(json))
+    dispatch(getProductDetailsById(id))
   }, [])
+
   return (
     <>
       {
@@ -21,7 +22,6 @@ const ProductDetails = ({location}) => {
               <img src={product.image} className="w-96"/>
               <div className="p-20 m-10 bg-gray-100">
                 <p className="text-xl">{product.description}</p>
-                {/* <p>{JSON.stringify(product)}</p> */}
               </div>
             </div>
           </div>

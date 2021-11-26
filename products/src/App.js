@@ -12,8 +12,8 @@ const App = ({history}) => {
 		<Router history={history}>
 			<Switch>
 				<Route path='/deals' component={Events}/>
-				<Route path='/products/:id' render={(props) => <ProductDetails {...props} location={location}/>}/>
-				{/* <Route path='/products/:id' component={ProductDetails}/> */}
+				{/* <Route path='/products/:id' render={(props) => <ProductDetails {...props} location={location}/>}/> */}
+				<Route path='/products/:id' component={ProductDetails}/>
 				<Route path='/products' component={ProductsPage}/>
 				<Route exact path='/' component={Home}/>
 			</Switch>

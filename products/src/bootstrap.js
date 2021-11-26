@@ -2,6 +2,8 @@ import React from 'react'
 import reactDOM from 'react-dom'
 import {createMemoryHistory, createBrowserHistory} from 'history'
 import App from './App.js'
+import store from './store/index'
+import {Provider} from 'react-redux'
 
 const mount = (el, {onNavigate, defaultHistory, initialPath}) => {
     const history = defaultHistory || createMemoryHistory({
@@ -11,7 +13,11 @@ const mount = (el, {onNavigate, defaultHistory, initialPath}) => {
         history.listen(onNavigate)
     }
 
-    reactDOM.render(<App history={history}/>, el)
+    reactDOM.render(
+        <Provider store={store}>
+            <App history={history}/>
+        </Provider>
+    , el)
 
     return {
         onParentNavigate ({pathname: nextPathname}) {
